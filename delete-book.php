@@ -13,7 +13,10 @@ if (!$con) {
 ?>
 
 <?php
-$sql = 'DELETE FROM t_books WHERE book_id=4';
+
+$book_id=$_GET['book_id'];
+
+$sql = 'DELETE FROM t_books WHERE book_id='.$book_id;
 
 if(mysqli_query($con,$sql)){
     echo 'A Book has been deleted';
