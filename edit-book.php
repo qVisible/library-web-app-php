@@ -21,20 +21,27 @@
         if($result=mysqli_query($con,$sql)){
             $row=mysqli_fetch_array($result);
             ?>
-            
+
             <form action="update-book.php" method="post"><br>
-            Title: <input type="text" value="<?php echo $row['title'] ?>" size="70"> <br>
-            ISBN:  <input type="text"  value="<?php  echo $row['isbn'] ?>"><br>
-            Date Published:  <input type="text"  value="'<?php  echo $row['date_published'] ?>"><br>
+            ID: <input type="text" value="<?php echo $row['book_id'] ?>"  name="book_id">
+            Title: <input type="text" value="<?php echo $row['title'] ?>" size="70" name="title"> <br>
+            ISBN:  <input type="text"  value="<?php  echo $row['isbn'] ?>"  name="isbn"><br>
+            Date Published:  <input type="text"  value="<?php  echo $row['date_published'] ?>"  name="date_published"><br>
             <input type="submit" value="change"><br>
             <form>
-            
+
         <?php
         }
         else{
             echo "Error selecting book record: " . mysqli_error($con);
         }
 
+?>
+
+
+<?php
+    //All connections once you have used them for what you want should be closed
+    mysqli_close($con);
 ?>
 
 
