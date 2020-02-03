@@ -7,15 +7,15 @@
 
     <?php
 
-$book_id=$_GET['book_id'];
+$member_id=$_GET['member_id'];
 
-$sql = 'DELETE FROM t_books WHERE book_id='.$book_id;
+$sql = 'DELETE FROM t_members WHERE member_id='.$member_id;
 
 if(mysqli_query($con,$sql)){
-    echo 'A Book has been deleted';
+    echo 'A member has been deleted';
 }
 else{
-    echo "Error deleting book record: " . mysqli_error($con);
+    echo "Error deleting member record: " . mysqli_error($con);
 }
 
 ?>

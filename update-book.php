@@ -1,20 +1,12 @@
 <html>
 
-    <body>
+<body>
 
-           <?php
-    $con = mysqli_connect("localhost", "root", "root", "DB_LIBRARY");
-
-    if (!$con) {
-        echo "Error: Unable to connect to MySQL." . PHP_EOL;
-        echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-        echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-        exit;
-    }
-    ?>
+    <?php require 'db-connect.php'?>
+    <?php require 'navbar.php'?>
 
 
-        <?php
+    <?php
         $book_id=$_POST['book_id'];
         $title=$_POST['title'];
         $isbn=$_POST['isbn'];
@@ -33,9 +25,10 @@
         ?>
 
 
-        <?php
+    <?php
     //All connections once you have used them for what you want should be closed
     mysqli_close($con);
 ?>
-    </body>
+</body>
+
 </html>

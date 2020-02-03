@@ -1,26 +1,20 @@
 <html>
-   <head>
-       <link rel="stylesheet" href="style1.css" type="text/css">
-   </head>
-    <body>
-<?php
-$con = mysqli_connect("localhost", "root", "root", "DB_LIBRARY");
 
-if (!$con) {
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-}
-?>
-<table>
-<tr>
-    <th>Book Title</th>
-    <th>ISBN</th>
-    <th>Date Published</th>
-    <th>Delete</th>
-</tr>
-<?php
+<head>
+    <link rel="stylesheet" href="style1.css" type="text/css">
+</head>
+
+<body>
+    <?php require 'db-connect.php'?>
+    <?php require 'navbar.php'?>
+    <table>
+        <tr>
+            <th>Book Title</th>
+            <th>ISBN</th>
+            <th>Date Published</th>
+            <th>Delete</th>
+        </tr>
+        <?php
 
 $sql="SELECT * FROM t_books";
 
@@ -38,11 +32,12 @@ while ($row=mysqli_fetch_array($result)){
     }
 
 ?>
-</table>
+    </table>
 
-<?php
+    <?php
     //All connections once you have used them for what you want should be closed
     mysqli_close($con);
 ?>
-    </body>
+</body>
+
 </html>
