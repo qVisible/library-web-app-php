@@ -1,4 +1,7 @@
 <html>
+   <head>
+    <link rel="stylesheet" href="style1.css" type="text/css">
+</head>
     <body>
         <?php require 'navbar.php'?>
         <form action="insert-member.php" method="post">

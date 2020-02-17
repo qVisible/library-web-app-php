@@ -1,5 +1,7 @@
 <html>
-
+<head>
+    <link rel="stylesheet" href="style1.css" type="text/css">
+</head>
 <body>
     <?php require 'db-connect.php'?>
     <?php require 'navbar.php'?>
@@ -9,9 +11,10 @@
         $title=$_POST['title'];
         $isbn=$_POST['isbn'];
         $date_published=$_POST['date_published'];
+        $author_fk=$_POST['author_fk'];
 
         $sql='INSERT INTO t_books (title, isbn, date_published, author_fk, publisher_fk)
-        VALUES ("'.$title.'", "'.$isbn.'","'.$date_published.'",0,0)';
+        VALUES ("'.$title.'", "'.$isbn.'","'.$date_published.'",'.$author_fk.',0)';
 
         if(mysqli_query($con,$sql)){
             echo 'Book '.$title.' has been inserted';

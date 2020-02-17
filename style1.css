@@ -1,3 +1,8 @@
+body{
+    padding:0px;
+    margin:0px;
+}
+
 td,tr,table{
     border: 1px grey solid;
 }
@@ -5,3 +10,18 @@ td,tr,table{
 td{
     padding:5px;
 }
+
+nav{
+   background-color:navy;
+    color: white;
+    height:25px;
+    padding:7px;
+}
+
+nav>a{
+    color:grey;
+}
+nav>a:hover{
+    color:floralwhite;
+}
+

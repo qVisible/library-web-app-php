@@ -1,9 +1,7 @@
 <html>
-
 <head>
     <link rel="stylesheet" href="style1.css" type="text/css">
 </head>
-
 <body>
     <?php require 'db-connect.php'?> 
     <?php require 'navbar.php'?>

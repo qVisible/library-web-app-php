@@ -9,19 +9,17 @@
 
 
     <?php
-        $book_id=$_POST['book_id'];
-        $title=$_POST['title'];
-        $isbn=$_POST['isbn'];
-        $date_published=$_POST['date_published'];
+        $author_id=$_POST['author_id'];
+        $author_name=$_POST['author_name'];
 
-        $sql='UPDATE t_books SET title="'.$title.'", isbn="'.$isbn.'", date_published="'.$date_published.'" WHERE book_id='.$book_id;
+        $sql='UPDATE t_authors SET author_name="'.$author_name.'" WHERE author_id='.$author_id;
 
 
         if(mysqli_query($con,$sql)){
-            echo 'A Book has been updated';
+            echo 'A author has been updated';
         }
         else{
-            echo "Error updating book record: " . mysqli_error($con);
+            echo "Error updating author record: " . mysqli_error($con);
         }
 
         ?>
