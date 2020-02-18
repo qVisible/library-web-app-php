@@ -1,7 +1,9 @@
 <html>
+
 <head>
     <link rel="stylesheet" href="style1.css" type="text/css">
 </head>
+
 <body>
 
     <?php require 'db-connect.php'?>
@@ -14,14 +16,38 @@
         $sql = 'SELECT * FROM t_books WHERE book_id='.$book_id;
 
         if($result=mysqli_query($con,$sql)){
-            $row=mysqli_fetch_array($result);
+            $rowBooks =mysqli_fetch_array($result);
             ?>
 
     <form action="update-book.php" method="post"><br>
-        ID: <input type="text" value="<?php echo $row['book_id'] ?>" name="book_id"><br>
-        Title: <input type="text" value="<?php echo $row['title'] ?>" size="70" name="title"> <br>
-        ISBN: <input type="text" value="<?php  echo $row['isbn'] ?>" name="isbn"><br>
-        Date Published: <input type="text" value="<?php  echo $row['date_published'] ?>" name="date_published"><br>
+        ID: <input type="text" value="<?php echo $rowBooks['book_id'] ?>" name="book_id"><br>
+        Title: <input type="text" value="<?php echo $rowBooks['title'] ?>" size="70" name="title"> <br>
+        
+        
+        Author: <select name='author_fk'>
+            <?php
+                $sql='SELECT * FROM t_authors';        
+                $result=mysqli_query($con,$sql);
+        
+                while ($rowAuthors=mysqli_fetch_array($result)){
+                    echo '<option value="'.$rowAuthors['author_id'].'"';
+                    
+                    //insert selected attribute in option that is the selected books author
+                    if($rowAuthors['author_id']==$rowBooks['author_fk']){
+                        echo ' selected ';
+                    }
+                    
+                    echo '>'.$rowAuthors['author_name'].'</option>';
+                }
+            ?>
+        </select>
+        
+        <br>
+        
+        
+        
+        ISBN: <input type="text" value="<?php  echo $rowBooks['isbn'] ?>" name="isbn"><br>
+        Date Published: <input type="text" value="<?php  echo $rowBooks['date_published'] ?>" name="date_published"><br>
         <input type="submit" value="change"><br>
         <form>
 

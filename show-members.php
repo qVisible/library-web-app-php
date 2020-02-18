@@ -12,6 +12,8 @@
             <th>address</th>
             <th>date of birth</th>
             <th>email</th>
+            <th>edit</th>
+            <th>delete</th>
         </tr>
         <?php
 
