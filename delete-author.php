@@ -5,7 +5,7 @@
 <body>
 
     <?php require 'db-connect.php'?>
-    <?php require 'navbar.php'?>
+    <?php require 'navbar.php'?><main>
 
     <?php
 
@@ -27,6 +27,6 @@ else{
     mysqli_close($con);
 ?>
 
-</body>
+</main></body>
 
 </html>

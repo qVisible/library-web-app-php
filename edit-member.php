@@ -5,7 +5,7 @@
 <body>
 
     <?php require 'db-connect.php'?>
-    <?php require 'navbar.php'?>
+    <?php require 'navbar.php'?><main>
 
     <?php
 
@@ -51,6 +51,6 @@
 
 
 
-</body>
+</main></body>
 
 </html>

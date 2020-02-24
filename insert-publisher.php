@@ -8,17 +8,17 @@
 
 
     <?php
-        $author_name=$_POST['author_name'];
+        $publisher_name=$_POST['publisher_name'];
     
 
-        $sql='INSERT INTO t_authors (author_name)
-        VALUES ("'.$author_name.'")';
+        $sql='INSERT INTO t_publishers (publisher_name)
+        VALUES ("'.$publisher_name.'")';
 
         if(mysqli_query($con,$sql)){
-            echo 'author '.$author_name.' has been inserted';
+            echo 'publisher '.$publisher_name.' has been inserted';
         }
         else{
-            echo "Error inserting author record: " . mysqli_error($con);
+            echo "Error inserting publisher record: " . mysqli_error($con);
         }
 
 

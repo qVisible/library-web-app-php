@@ -7,6 +7,10 @@ Authors:
 <a href="show-authors.php">Show</a>
 <a href="add-author.php">Add</a>
 -
+Publishers:
+<a href="show-publishers.php">Show</a>
+<a href="add-publisher.php">Add</a>
+-
 Members:
 <a href="show-members.php">Show</a>
 <a href="add-member.php">Add</a>

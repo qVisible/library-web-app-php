@@ -4,7 +4,7 @@
 </head>
 <body>
     <?php require 'db-connect.php'?> 
-    <?php require 'navbar.php'?>
+    <?php require 'navbar.php'?><main>
     <table>
         <tr>
             <th>forename</th>
@@ -41,6 +41,6 @@ while ($row=mysqli_fetch_array($result)){ //loop through rows from result
     //All connections once you have used them for what you want should be closed
     mysqli_close($con); //close the db connection
 ?>
-</body>
+</main></body>
 
 </html>

@@ -9,15 +9,15 @@
 
     <?php
 
-$book_id=$_GET['book_id'];
+$publisher_id=$_GET['publisher_id'];
 
-$sql = 'DELETE FROM t_books WHERE book_id='.$book_id;
+$sql = 'DELETE FROM t_publishers WHERE publisher_id='.$publisher_id;
 
 if(mysqli_query($con,$sql)){
-    echo 'A Book has been deleted';
+    echo 'A publisher has been deleted';
 }
 else{
-    echo "Error deleting book record: " . mysqli_error($con);
+    echo "Error deleting publisher record: " . mysqli_error($con);
 }
 
 ?>

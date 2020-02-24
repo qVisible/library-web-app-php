@@ -6,10 +6,11 @@
 
 <body>
 
-    <?php require 'db-connect.php'?>
-    <?php require 'navbar.php'?>
 
-    <?php
+        <?php require 'db-connect.php'?>
+        <?php require 'navbar.php'?><main>
+
+        <?php
 
         $book_id=$_GET['book_id'];
 
@@ -19,13 +20,13 @@
             $rowBooks =mysqli_fetch_array($result);
             ?>
 
-    <form action="update-book.php" method="post"><br>
-        ID: <input type="text" value="<?php echo $rowBooks['book_id'] ?>" name="book_id"><br>
-        Title: <input type="text" value="<?php echo $rowBooks['title'] ?>" size="70" name="title"> <br>
-        
-        
-        Author: <select name='author_fk'>
-            <?php
+        <form action="update-book.php" method="post"><br>
+            ID: <input type="text" value="<?php echo $rowBooks['book_id'] ?>" name="book_id"><br>
+            Title: <input type="text" value="<?php echo $rowBooks['title'] ?>" size="70" name="title"> <br>
+
+
+            Author: <select name='author_fk'>
+                <?php
                 $sql='SELECT * FROM t_authors';        
                 $result=mysqli_query($con,$sql);
         
@@ -40,18 +41,37 @@
                     echo '>'.$rowAuthors['author_name'].'</option>';
                 }
             ?>
-        </select>
-        
-        <br>
-        
-        
-        
-        ISBN: <input type="text" value="<?php  echo $rowBooks['isbn'] ?>" name="isbn"><br>
-        Date Published: <input type="text" value="<?php  echo $rowBooks['date_published'] ?>" name="date_published"><br>
-        <input type="submit" value="change"><br>
-        <form>
+            </select>
 
-            <?php
+            <br>
+
+            Publisher: <select name='publisher_fk'>
+                <?php
+                $sql='SELECT * FROM t_publishers';        
+                $result=mysqli_query($con,$sql);
+        
+                while ($rowPublishers=mysqli_fetch_array($result)){
+                    echo '<option value="'.$rowPublishers['publisher_id'].'"';
+                    
+                    //insert selected attribute in option that is the selected books author
+                    if($rowPublishers['publisher_id']==$rowBooks['publisher_fk']){
+                        echo ' selected ';
+                    }
+                    
+                    echo '>'.$rowPublishers['publisher_name'].'</option>';
+                }
+            ?>
+            </select>
+
+            <br>
+
+
+            ISBN: <input type="text" value="<?php  echo $rowBooks['isbn'] ?>" name="isbn"><br>
+            Date Published: <input type="text" value="<?php  echo $rowBooks['date_published'] ?>" name="date_published"><br>
+            <input type="submit" value="change"><br>
+            <form>
+
+                <?php
         }
         else{
             echo "Error selecting book record: " . mysqli_error($con);
@@ -60,7 +80,7 @@
 ?>
 
 
-            <?php
+                <?php
     //All connections once you have used them for what you want should be closed
     mysqli_close($con);
 ?>
@@ -69,6 +89,6 @@
 
 
 
-</body>
+</main></body>
 
 </html>

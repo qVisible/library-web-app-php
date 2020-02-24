@@ -4,8 +4,8 @@
 </head>
     <body>
         <?php require 'navbar.php'?><main>
-        <form action="insert-author.php" method="post">
-            <input type="text" name="author_name" placeholder="Author Name"><br>
+        <form action="insert-publisher.php" method="post">
+            <input type="text" name="publisher_name" placeholder="publisher Name"><br>
             <input type="submit">
         </form>
     </main></body>
