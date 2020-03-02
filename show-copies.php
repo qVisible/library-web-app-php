@@ -7,10 +7,25 @@
 <body>
     <?php require 'db-connect.php'?>
     <?php require 'navbar.php'?>
+
     <main>
 
         <?php
          $book_fk=$_GET['book_id'];
+         $copy=$_GET['copy'];
+    
+        if(!$copy==''){
+                $sql='INSERT INTO t_copies (book_fk) VALUES ('.$book_fk.')';
+                    
+        if(mysqli_query($con,$sql)){
+            echo 'copy has been inserted';
+        }
+        else{
+            echo "Error inserting copy record: " . mysqli_error($con);
+        }
+
+                    
+            }
     
          $sql='SELECT * FROM t_books JOIN t_authors ON author_id=author_fk WHERE book_id='.$book_fk;
     $result=mysqli_query($con,$sql); //execute query
@@ -58,6 +73,8 @@ while ($row=mysqli_fetch_array($result)){ //loop through rows from result
 ?>
         </table>
 
+
+        <a href="show-copies.php?book_id=<?php echo $book_fk?>&copy=true"><img src="add-copy.png"></a>
         <?php
     //All connections once you have used them for what you want should be closed
     mysqli_close($con); //close the db connection
