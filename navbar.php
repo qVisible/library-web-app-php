@@ -40,4 +40,19 @@
             <a href="add-publisher.php">Add</a>
         </div>
     </div>
+
+
+        <div class="dropdown">
+        <button class="dropbtn">Help</button>
+        <div class="dropdown-content">
+            <a href="get-code.php?filename=<?php
+$currentFile = $_SERVER['PHP_SELF'];
+$parts = Explode('/', $currentFile);
+echo $parts[count($parts) - 1]; //Get the current filename and pass it to the Get Code Page
+?>">Code</a>
+            <a href="database-help.php">Database</a>
+        </div>
+    </div>
+
+
 </nav>
