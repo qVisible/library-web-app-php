@@ -1,5 +1,5 @@
 <nav>
-
+    <a href="index.php">Home</a>
     <div class="dropdown">
         <button class="dropbtn">Loans</button>
         <div class="dropdown-content">
