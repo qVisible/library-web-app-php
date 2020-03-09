@@ -11,15 +11,27 @@
             <tr>
                 <th>ID </th>
                 <th>Member </th>
-                <th>copy-fk</th>
+                <th>Copy #</th>
                 <th>book</th>
-                <th>member</th>
                 <th>date out</th>
                 <th>date return</th>
-                <th>Edit</th>
+
                 <th>Delete</th>
             </tr>
             <?php
+
+if(!$_GET['loan_id']==''){
+    $loan_id=$_GET['loan_id'];
+    $sql='UPDATE t_loans SET date_returned="'.date('Y.m.d').'" WHERE loan_id='.$loan_id;
+
+       if(mysqli_query($con,$sql)){
+            echo 'Book Returned';
+        }
+        else{
+            echo "Error returning book: " . mysqli_error($con);
+        }
+
+}
 
 $sql="SELECT * FROM t_loans JOIN t_copies ON copy_fk=copy_id JOIN t_books ON book_fk=book_id JOIN t_members ON member_fk=member_id";
 
@@ -31,17 +43,17 @@ while ($row=mysqli_fetch_array($result)){
       echo '<td>'.$row['forename'].' '.$row['surname'].'</td>';
      echo '<td>'.$row['copy_fk'].'</td>';
      echo '<td>'.$row['title'].'</td>';
-     echo '<td>'.$row['member_fk'].'</td>';
      echo '<td>'.$row['date_out'].'</td>';
+    if(!$row['date_returned']==''){
      echo '<td>'.$row['date_returned'].'</td>';
+    }
+    else{
+        echo '<td><a href="show-loans.php?loan_id='.$row['loan_id'].'">Return Now</a></td>';
+    }
 
-     //edit link
-//     echo '<td><a href="edit-book.php?book_id='.$row['book_id'].'"><img src="edit.png"></a>
-     // </td>';
- //
- // //delete link
- // echo '<td><a href="delete-book.php?book_id='.$row['book_id'].'"><img src="delete.png"></a></td>';
- // echo '</tr>';
+  //delete link
+  echo '<td><a href="delete-loan.php?loan_id='.$row['loan_id'].'"><img src="delete.png"></a></td>';
+  echo '</tr>';
     }
 
 ?>

@@ -3,8 +3,8 @@
     <div class="dropdown">
         <button class="dropbtn">Loans</button>
         <div class="dropdown-content">
-            <a href="add-loan.php">Create</a>
             <a href="show-loans.php">Show</a>
+            <a href="add-loan.php">Create</a>
         </div>
     </div>
 
