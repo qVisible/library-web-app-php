@@ -4,7 +4,7 @@
         <button class="dropbtn">Loans</button>
         <div class="dropdown-content">
             <a href="add-loan.php">Create</a>
-            <a href="show_loans.php">Show</a>
+            <a href="show-loans.php">Show</a>
         </div>
     </div>
 

@@ -10,7 +10,9 @@
         <table>
             <tr>
                 <th>ID </th>
+                <th>Member </th>
                 <th>copy-fk</th>
+                <th>book</th>
                 <th>member</th>
                 <th>date out</th>
                 <th>date return</th>
@@ -19,14 +21,16 @@
             </tr>
             <?php
 
-$sql="SELECT * FROM t_loans";
+$sql="SELECT * FROM t_loans JOIN t_copies ON copy_fk=copy_id JOIN t_books ON book_fk=book_id JOIN t_members ON member_fk=member_id";
 
 $result=mysqli_query($con,$sql);
 
 while ($row=mysqli_fetch_array($result)){
      echo '<tr>';
      echo '<td>'.$row['loan_id'].'</td>';
+      echo '<td>'.$row['forename'].' '.$row['surname'].'</td>';
      echo '<td>'.$row['copy_fk'].'</td>';
+     echo '<td>'.$row['title'].'</td>';
      echo '<td>'.$row['member_fk'].'</td>';
      echo '<td>'.$row['date_out'].'</td>';
      echo '<td>'.$row['date_returned'].'</td>';
