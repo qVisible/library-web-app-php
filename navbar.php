@@ -4,6 +4,7 @@
         <button class="dropbtn">Loans</button>
         <div class="dropdown-content">
             <a href="add-loan.php">Create</a>
+            <a href="show_loans.php">Show</a>
         </div>
     </div>
 
@@ -42,7 +43,7 @@
     </div>
 
 
-        <div class="dropdown">
+    <div class="dropdown">
         <button class="dropbtn">Help</button>
         <div class="dropdown-content">
             <a href="get-code.php?filename=<?php
