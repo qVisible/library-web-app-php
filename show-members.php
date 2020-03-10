@@ -1,21 +1,24 @@
 <html>
+
 <head>
     <link rel="stylesheet" href="style1.css" type="text/css">
 </head>
+
 <body>
-    <?php require 'db-connect.php'?> 
+    <?php require 'db-connect.php'?>
     <?php require 'navbar.php'?><main>
-    <table>
-        <tr>
-            <th>forename</th>
-            <th>surname</th>
-            <th>address</th>
-            <th>date of birth</th>
-            <th>email</th>
-            <th>edit</th>
-            <th>delete</th>
-        </tr>
-        <?php
+        <table>
+            <tr>
+                <th>forename</th>
+                <th>surname</th>
+                <th>address</th>
+                <th>date of birth</th>
+                <th>email</th>
+                <th>image</th>
+                <th>edit</th>
+                <th>delete</th>
+            </tr>
+            <?php
 
 $sql="SELECT * FROM t_members"; //get data from table
 
@@ -28,6 +31,7 @@ while ($row=mysqli_fetch_array($result)){ //loop through rows from result
      echo '<td>'.$row['address'].'</td>';
      echo '<td>'.$row['dob'].'</td>';
      echo '<td>'.$row['email'].'</td>';
+     echo '<td><img src="member-images/'.$row['image'].'"</td>';
      echo '<td><a href="edit-member.php?member_id='.$row['member_id'].'"><img src="edit.png"></a>
      </td>'; //edit member icon that also passes the member id
      echo '<td><a href="delete-member.php?member_id='.$row['member_id'].'"><img src="delete.png"></a></td>';  //delete member icon that also passes the member id
@@ -35,12 +39,13 @@ while ($row=mysqli_fetch_array($result)){ //loop through rows from result
     }
 
 ?>
-    </table>
+        </table>
 
-    <?php
+        <?php
     //All connections once you have used them for what you want should be closed
     mysqli_close($con); //close the db connection
 ?>
-</main></body>
+    </main>
+</body>
 
 </html>

@@ -2,12 +2,14 @@
 
 <head>
     <link rel="stylesheet" href="style1.css" type="text/css">
+
+    <meta http-equiv="refresh" content="1;url=show-books.php" />
 </head>
 
 <body>
 
-        <?php require 'db-connect.php'?>
-        <?php require 'navbar.php'?><main>
+    <?php require 'db-connect.php'?>
+    <?php require 'navbar.php'?><main>
 
 
         <?php
@@ -15,9 +17,11 @@
         $isbn=$_POST['isbn'];
         $date_published=$_POST['date_published'];
         $author_fk=$_POST['author_fk'];
+        $publisher_fk=$_POST['publisher_fk'];
 
         $sql='INSERT INTO t_books (title, isbn, date_published, author_fk, publisher_fk)
         VALUES ("'.$title.'", "'.$isbn.'","'.$date_published.'",'.$author_fk.','.$publisher_fk.')';
+
 
         if(mysqli_query($con,$sql)){
             echo 'Book '.$title.' has been inserted';
@@ -33,7 +37,8 @@
             //All connections once you have used them for what you want should be closed
             mysqli_close($con);
         ?>
-    
-</main></body>
+
+    </main>
+</body>
 
 </html>

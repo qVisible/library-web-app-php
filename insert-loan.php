@@ -2,12 +2,13 @@
 
 <head>
     <link rel="stylesheet" href="style1.css" type="text/css">
+    <meta http-equiv="refresh" content="1;url=show-loans.php" />
 </head>
 
 <body>
 
-        <?php require 'db-connect.php'?>
-        <?php require 'navbar.php'?><main>
+    <?php require 'db-connect.php'?>
+    <?php require 'navbar.php'?><main>
 
 
         <?php
@@ -33,7 +34,8 @@
             //All connections once you have used them for what you want should be closed
             mysqli_close($con);
         ?>
-    
-</main></body>
+
+    </main>
+</body>
 
 </html>

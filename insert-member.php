@@ -1,13 +1,16 @@
 <html>
+
 <head>
     <link rel="stylesheet" href="style1.css" type="text/css">
+    <meta http-equiv="refresh" content="1;url=show-members.php" />
 </head>
+
 <body>
     <?php require 'db-connect.php'?>
     <?php require 'navbar.php'?><main>
 
 
-    <?php
+        <?php
         $forename=$_POST['forename'];
         $surname=$_POST['surname'];
         $address=$_POST['address'];
@@ -29,10 +32,11 @@
         ?>
 
 
-    <?php
+        <?php
             //All connections once you have used them for what you want should be closed
             mysqli_close($con);
         ?>
-</main></body>
+    </main>
+</body>
 
 </html>

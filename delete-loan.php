@@ -2,6 +2,8 @@
 
 <head>
     <link rel="stylesheet" href="style1.css" type="text/css">
+    <meta http-equiv="refresh" content="1;url=show-loans.php" />
+
 </head>
 
 <body>

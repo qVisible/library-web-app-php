@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="style1.css" type="text/css">
+    <meta http-equiv="refresh" content="1;url=show-books.php" />
 </head>
 
 <body>
@@ -19,6 +20,7 @@
         $date_published=$_POST['date_published'];
 
         $sql='UPDATE t_books SET title="'.$title.'", author_fk="'.$author_fk.'",publisher_fk="'.$publisher_fk.'", isbn="'.$isbn.'", date_published="'.$date_published.'" WHERE book_id='.$book_id;
+
 
 
         if(mysqli_query($con,$sql)){
