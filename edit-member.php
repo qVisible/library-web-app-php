@@ -9,7 +9,7 @@
     <?php require 'db-connect.php'?>
     <?php require 'navbar.php'?>
 
-        <main>
+    <main>
 
         <?php
 
@@ -21,29 +21,30 @@
             $row=mysqli_fetch_array($result);
             ?>
 
-        <form action="update-member.php" method="post" enctype="multipart/form-data"><br>
-            ID: <br>
-            <input type="text" value="<?php echo $row['member_id'] ?>" name="member_id"><br>
-            Forename:<br>
-            <input type="text" value="<?php echo $row['forename'] ?>" size="70" name="forename"> <br>
-            Surname:<br>
-            <input type="text" value="<?php echo $row['surname'] ?>" size="70" name="surname"> <br>
-            Address: <br>
-            <input type="text" value="<?php  echo $row['address'] ?>" name="address"><br>
-            Date of Birth<br>
-            <input type="text" value="<?php  echo $row['dob'] ?>" name="dob"><br>
-            email: <br>
-            <input type="email" value="<?php  echo $row['email'] ?>" name="email"><br>
-            <p>
-                Select image to upload:
-                <input type="file" name="fileToUpload" id="fileToUpload">
-            </p>
-            <br>
+        <form action="update-member.php" method="post" enctype="multipart/form-data">
+            <label>id</label>
+            <input type="text" value="<?php echo $row['member_id'] ?>" name="member_id">
 
-            <p>
-                <input type="submit" value="Update Member"><br>
+            <label>forename</label>
+            <input type="text" value="<?php echo $row['forename'] ?>" size="70" name="forename">
 
-            </p>
+            <label>surname</label>
+            <input type="text" value="<?php echo $row['surname'] ?>" size="70" name="surname">
+
+            <label>address</label>
+            <input type="text" value="<?php  echo $row['address'] ?>" name="address">
+
+            <label>date of birth</label>
+            <input type="text" value="<?php  echo $row['dob'] ?>" name="dob">
+
+            <label>email</label>
+            <input type="email" value="<?php  echo $row['email'] ?>" name="email">
+
+            <label>Select image to upload:</label>
+            <input type="file" name="fileToUpload" id="fileToUpload">
+
+
+            <input type="submit" value="Update Member">
             <form>
 
                 <?php

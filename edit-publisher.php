@@ -19,12 +19,13 @@
             $row=mysqli_fetch_array($result);
             ?>
 
-        <form action="update-publisher.php" method="post"><br>
-            ID: <br>
-            <input type="text" value="<?php echo $row['publisher_id'] ?>" name="publisher_id"><br>
-            Forename:<br>
-            <input type="text" value="<?php echo $row['publisher_name'] ?>" size="70" name="publisher_name"> <br>
-            <br>
+        <form action="update-publisher.php" method="post">
+            <label>id</label>
+            <input type="text" value="<?php echo $row['publisher_id'] ?>" name="publisher_id">
+
+            <label>publisher name</label>
+            <input type="text" value="<?php echo $row['publisher_name'] ?>" size="70" name="publisher_name">
+
             <input type="submit" value="change"><br>
         </form>
 

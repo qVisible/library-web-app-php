@@ -1,12 +1,18 @@
 <html>
-   <head>
+
+<head>
     <link rel="stylesheet" href="style1.css" type="text/css">
 </head>
-    <body>
-        <?php require 'navbar.php'?><main>
+
+<body>
+    <?php require 'navbar.php'?>
+    <main>
         <form action="insert-publisher.php" method="post">
+            <label>name</label>
             <input type="text" name="publisher_name" placeholder="publisher Name"><br>
             <input type="submit">
         </form>
-    </main></body>
+    </main>
+</body>
+
 </html>

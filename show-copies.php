@@ -35,8 +35,14 @@
 
 
         <h1><?php echo $row['title'] ?></h1>
-        Author: <?php echo $row['author_name'] ?>
-        Book ID: <?php echo $row['book_id'] ?>
+        Author: <?php echo $row['author_name'] ?><br>
+        Book ID: <?php echo $row['book_id'] ?><br>
+
+
+
+        <a href="show-copies.php?book_id=<?php echo $book_fk?>&copy=true"><img src="add-copy.png"></a>
+
+
 
         <h3>Copies Listed</h3>
 
@@ -74,7 +80,6 @@ while ($row=mysqli_fetch_array($result)){ //loop through rows from result
         </table>
 
 
-        <a href="show-copies.php?book_id=<?php echo $book_fk?>&copy=true"><img src="add-copy.png"></a>
         <?php
     //All connections once you have used them for what you want should be closed
     mysqli_close($con); //close the db connection

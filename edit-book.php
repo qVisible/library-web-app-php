@@ -7,8 +7,8 @@
 <body>
 
 
-        <?php require 'db-connect.php'?>
-        <?php require 'navbar.php'?><main>
+    <?php require 'db-connect.php'?>
+    <?php require 'navbar.php'?><main>
 
         <?php
 
@@ -20,12 +20,16 @@
             $rowBooks =mysqli_fetch_array($result);
             ?>
 
-        <form action="update-book.php" method="post"><br>
-            ID: <input type="text" value="<?php echo $rowBooks['book_id'] ?>" name="book_id"><br>
-            Title: <input type="text" value="<?php echo $rowBooks['title'] ?>" size="70" name="title"> <br>
+        <form action="update-book.php" method="post">
+            <label>ID:</label>
+            <input type="text" value="<?php echo $rowBooks['book_id'] ?>" name="book_id">
 
 
-            Author: <select name='author_fk'>
+            <label>Title:</label>
+            <input type="text" value="<?php echo $rowBooks['title'] ?>" size="70" name="title">
+
+            <label>author</label>
+            <select name='author_fk'>
                 <?php
                 $sql='SELECT * FROM t_authors';        
                 $result=mysqli_query($con,$sql);
@@ -43,9 +47,8 @@
             ?>
             </select>
 
-            <br>
-
-            Publisher: <select name='publisher_fk'>
+            <label>Publisher:</label>
+            <select name='publisher_fk'>
                 <?php
                 $sql='SELECT * FROM t_publishers';        
                 $result=mysqli_query($con,$sql);
@@ -63,12 +66,17 @@
             ?>
             </select>
 
-            <br>
 
 
-            ISBN: <input type="text" value="<?php  echo $rowBooks['isbn'] ?>" name="isbn"><br>
-            Date Published: <input type="text" value="<?php  echo $rowBooks['date_published'] ?>" name="date_published"><br>
-            <input type="submit" value="change"><br>
+
+            <label>isbn</label>
+            <input type="text" value="<?php  echo $rowBooks['isbn'] ?>" name="isbn">
+
+            <label>Date Published:</label>
+            <input type="text" value="<?php  echo $rowBooks['date_published'] ?>" name="date_published">
+
+            <input type="submit" value="change">
+
             <form>
 
                 <?php
@@ -89,6 +97,7 @@
 
 
 
-</main></body>
+    </main>
+</body>
 
 </html>

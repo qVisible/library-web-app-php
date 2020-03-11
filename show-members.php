@@ -31,7 +31,7 @@ while ($row=mysqli_fetch_array($result)){ //loop through rows from result
      echo '<td>'.$row['address'].'</td>';
      echo '<td>'.$row['dob'].'</td>';
      echo '<td>'.$row['email'].'</td>';
-     echo '<td><img src="member-images/'.$row['image'].'"</td>';
+     echo '<td><img id="thumbnail" src="member-images/'.$row['image'].'"</td>';
      echo '<td><a href="edit-member.php?member_id='.$row['member_id'].'"><img src="edit.png"></a>
      </td>'; //edit member icon that also passes the member id
      echo '<td><a href="delete-member.php?member_id='.$row['member_id'].'"><img src="delete.png"></a></td>';  //delete member icon that also passes the member id

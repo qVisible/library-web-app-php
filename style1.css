@@ -1,5 +1,46 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
 
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 5px;
+    width: 60%;
+}
+
+.entity {
+    background-color: #efefff;
+    border-radius: 5px;
+    width: 200px;
+    border: solid 1px grey;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+#flex-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+form {
+    width: 500px;
+    ;
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-columns: 1fr 3fr;
+}
+
+input[type=submit] {
+    font-size: 20pt;
+    margin-top: 20px;
+    grid-column: 2;
+}
+
+label {
+    text-align: right;
+    margin-right: 10px;
+}
+
 body {
     padding: 0px;
     margin: 0px;
@@ -10,7 +51,7 @@ main {
     padding: 7px;
 }
 
-td img {
+img#thumbnail {
     width: 70px;
 }
 
@@ -44,14 +85,10 @@ h3 {
     font-size: 0.9em;
 }
 
-h1 {
-    color: darkred;
-    font-style: italic;
+.entity > h1 {
+    text-align: center;
     font-size: 1.1em;
 }
-
-
-
 
 /*Drop Down Menu Styling*/
 
