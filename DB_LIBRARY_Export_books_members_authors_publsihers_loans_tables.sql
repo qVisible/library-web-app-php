@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 02, 2020 at 04:32 PM
--- Server version: 5.7.25
--- PHP Version: 7.3.1
+-- Generation Time: Mar 12, 2020 at 03:58 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -36,7 +36,9 @@ INSERT INTO `t_authors` (`author_id`, `author_name`) VALUES
 (4, 'Bram Stoker'),
 (5, 'Jo Marsh'),
 (7, 'Sally Rooney'),
-(8, 'Jonathon Swift');
+(8, 'Jonathon Swift'),
+(9, 'James Caan'),
+(10, 'Sally Rooney');
 
 -- --------------------------------------------------------
 
@@ -60,13 +62,15 @@ CREATE TABLE `t_books` (
 INSERT INTO `t_books` (`book_id`, `title`, `isbn`, `date_published`, `author_fk`, `publisher_fk`) VALUES
 (3, 'Harry Potter: Chamber of Secrets', '13165461654987', '2020-01-13', 8, 1),
 (6, 'Harry Potter & The Philosphers Stone', '654321654312', '2020-02-06', 1, 1),
-(7, 'Harry Potter & The Prisoner of Azkeban', '87651321354', '2020-02-01', 1, 1),
+(7, 'Prisoner of Azkeban', '23423423', '2020-03-10', 1, 1),
 (8, 'Harry Potter & The Goblet of Fire', '2165132165', '2020-02-07', 1, 1),
 (9, 'Harry Potter & The Order of The Phoenix', '987431265874', '2020-02-05', 1, 1),
 (10, 'The Sea', '6543216841', '2020-02-06', 3, 2),
 (11, 'Little Women', '87432134312', '2020-02-01', 5, 2),
 (12, 'Dracula\'s Holiday By The Sea', '98432131', '2020-02-06', 4, 1),
-(13, 'Artemis Fowl', '98321321', '2020-02-12', 2, 1);
+(13, 'Artemis Fowl', '98321321', '2020-02-12', 2, 1),
+(14, 'Normal People', '98432131', '2020-03-11', 10, 1),
+(15, 'Conversations With Friends', '98432131', '2020-03-26', 10, 5);
 
 -- --------------------------------------------------------
 
@@ -110,7 +114,22 @@ INSERT INTO `t_copies` (`copy_id`, `book_fk`) VALUES
 (24, 11),
 (25, 11),
 (26, 10),
-(27, 12);
+(27, 12),
+(28, 2),
+(29, 2),
+(30, 13),
+(31, 14),
+(32, 14),
+(33, 14),
+(34, 14),
+(35, 6),
+(36, 6),
+(37, 6),
+(38, 6),
+(39, 10),
+(40, 10),
+(41, 15),
+(42, 15);
 
 -- --------------------------------------------------------
 
@@ -131,8 +150,11 @@ CREATE TABLE `t_loans` (
 --
 
 INSERT INTO `t_loans` (`loan_id`, `copy_fk`, `member_fk`, `date_out`, `date_returned`) VALUES
-(1, 2, 2, '2020-03-02', NULL),
-(2, 2, 2, '2020-03-02', NULL);
+(2, 2, 2, '2020-03-02', '2020-03-09'),
+(3, 2, 1, '2020-03-10', '2020-03-09'),
+(4, 6, 4, '2020-03-17', '2020-03-09'),
+(5, 7, 3, '2020-03-26', '2020-03-10'),
+(6, 8, 1, '2020-03-10', '2020-03-10');
 
 -- --------------------------------------------------------
 
@@ -146,18 +168,19 @@ CREATE TABLE `t_members` (
   `surname` varchar(60) NOT NULL,
   `address` varchar(150) NOT NULL,
   `dob` date NOT NULL,
-  `email` varchar(60) NOT NULL
+  `email` varchar(60) NOT NULL,
+  `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `t_members`
 --
 
-INSERT INTO `t_members` (`member_id`, `forename`, `surname`, `address`, `dob`, `email`) VALUES
-(1, 'St. John', 'O\'Flanagan', '1 Talbot Green', '2020-02-11', 'stjohn@itcarlow.ie'),
-(2, 'Ruth ', 'Durban', '9 College green', '2020-02-06', 'ruth@durban.ie'),
-(3, 'Ronan', 'O\'Rahilly', '19 Selskar Park', '2020-03-02', 'r@orahilly.ie'),
-(4, 'Iolanthe', 'O\'Meara', '45 Drinagh Court', '2020-02-26', 'i@omeara.com');
+INSERT INTO `t_members` (`member_id`, `forename`, `surname`, `address`, `dob`, `email`, `image`) VALUES
+(1, 'St. John', 'O\'Flanagan', '1 Talbot Green', '2020-02-11', 'stjohn@itcarlow.ie', 'images-26.jpg'),
+(2, 'Ruth ', 'Durban', '9 College green', '2020-02-06', 'ruth@durban.ie', 'images-20.jpg'),
+(3, 'Ronan', 'O\'Rahilly', '19 Selskar Park', '2020-03-02', 'r@orahilly.ie', 'images-23.jpg'),
+(4, 'Iolanthe', 'O\'Meara', '45 Drinagh Court', '2020-02-26', 'i@omeara.com', 'images-24.jpg');
 
 -- --------------------------------------------------------
 
@@ -176,7 +199,12 @@ CREATE TABLE `t_publishers` (
 
 INSERT INTO `t_publishers` (`publisher_id`, `publisher_name`) VALUES
 (1, 'Bloomsbury'),
-(2, 'Gill & McMillan');
+(2, 'Gill & McMillan'),
+(3, 'Wiley'),
+(4, 'Prentice Hall'),
+(5, 'Simon & Schuster'),
+(6, 'Harper Collins'),
+(7, 'Folens');
 
 --
 -- Indexes for dumped tables
@@ -226,25 +254,25 @@ ALTER TABLE `t_publishers`
 -- AUTO_INCREMENT for table `t_authors`
 --
 ALTER TABLE `t_authors`
-  MODIFY `author_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `author_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `t_books`
 --
 ALTER TABLE `t_books`
-  MODIFY `book_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `book_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `t_copies`
 --
 ALTER TABLE `t_copies`
-  MODIFY `copy_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `copy_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `t_loans`
 --
 ALTER TABLE `t_loans`
-  MODIFY `loan_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `loan_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `t_members`
@@ -256,4 +284,4 @@ ALTER TABLE `t_members`
 -- AUTO_INCREMENT for table `t_publishers`
 --
 ALTER TABLE `t_publishers`
-  MODIFY `publisher_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `publisher_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
