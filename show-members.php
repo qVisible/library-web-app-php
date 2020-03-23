@@ -1,4 +1,4 @@
-<html>
+<?php require 'session.php'?><html>
 
 <head>
     <link rel="stylesheet" href="style1.css" type="text/css">
@@ -15,6 +15,7 @@
                 <th>date of birth</th>
                 <th>email</th>
                 <th>image</th>
+                <th>bookmark</th>
                 <th>edit</th>
                 <th>delete</th>
             </tr>
@@ -32,6 +33,11 @@ while ($row=mysqli_fetch_array($result)){ //loop through rows from result
      echo '<td>'.$row['dob'].'</td>';
      echo '<td>'.$row['email'].'</td>';
      echo '<td><img id="thumbnail" src="member-images/'.$row['image'].'"</td>';
+
+      echo '<td><a href="bookmark-member.php?member_id='.$row['member_id'].'"><img src="bookmark.png"></a>
+     </td>';
+
+
      echo '<td><a href="edit-member.php?member_id='.$row['member_id'].'"><img src="edit.png"></a>
      </td>'; //edit member icon that also passes the member id
      echo '<td><a href="delete-member.php?member_id='.$row['member_id'].'"><img src="delete.png"></a></td>';  //delete member icon that also passes the member id

@@ -42,6 +42,13 @@
         </div>
     </div>
 
+    <div class="dropdown">
+        <button class="dropbtn">Bookmarks</button>
+        <div class="dropdown-content">
+            <a href="show-bookmarks.php">Show</a>
+        </div>
+    </div>
+
 
     <div class="dropdown">
         <button class="dropbtn">Help</button>
@@ -56,4 +63,5 @@ echo $parts[count($parts) - 1]; //Get the current filename and pass it to the Ge
     </div>
 
 
+    <?php echo 'Page Count: '.$_SESSION['page_count'];  ?>
 </nav>

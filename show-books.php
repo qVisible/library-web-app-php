@@ -1,4 +1,4 @@
-<html>
+<?php require 'session.php'?><html>
 
 <head>
     <link rel="stylesheet" href="style1.css" type="text/css">
@@ -49,6 +49,7 @@ while ($row=mysqli_fetch_array($result)){
 
 ?>
         </table>
+
 
         <?php
     //All connections once you have used them for what you want should be closed

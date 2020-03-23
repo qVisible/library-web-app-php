@@ -1,4 +1,4 @@
-<html>
+<?php require 'session.php'?><html>
 <head>
     <link rel="stylesheet" href="style1.css" type="text/css">
 </head>
